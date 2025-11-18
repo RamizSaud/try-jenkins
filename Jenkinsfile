@@ -1,3 +1,11 @@
+def buildImage = {
+    sh 'docker build -t incident-app .'
+}
+
+def runContainer = {
+    sh 'docker run --rm incident-app'
+}
+
 pipeline {
     agent any
 
@@ -8,13 +16,17 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t incident-app .'
+                script {
+                    buildImage()
+                }
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run --rm incident-app'
+                script {
+                    runContainer()
+                }
             }
         }
     }
