@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    triggers {
+        pollSCM('* * * * *')
+    }
     stages {
 
         stage('Build Docker Image') {
