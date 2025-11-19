@@ -8,12 +8,16 @@ def runContainer = { ConfigText ->
 
 def pushImage = {
     sh "echo '${DOCKERHUB_CREDENTIALS_PSW}' | docker login -u '${DOCKERHUB_CREDENTIALS_USR}' --password-stdin"
+    sh "docker tag incident-app ramizsaud/incident-app:latest"
     sh "docker push ramizsaud/incident-app:latest"
 }
 
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub-creds') 
+    }
     triggers {
         pollSCM('* * * * *')
     }
