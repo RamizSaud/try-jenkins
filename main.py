@@ -6,6 +6,7 @@ print("Creating Incidents....")
 # with open("output.txt", "w") as f:
 #     f.writelines(lines)
 
+print(sys.argv)
 if len(sys.argv) > 1:
     text = sys.argv[1]
     print("Argument received:", text)
