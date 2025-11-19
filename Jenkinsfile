@@ -1,9 +1,9 @@
 def buildImage = {
-    sh 'docker build -t incident-app .'
+    sh "docker build -t incident-app ."
 }
 
-def runContainer = {
-    sh 'docker run --rm incident-app "Hello World"'
+def runContainer = { ConfigText ->
+    sh "docker run --rm incident-app '${ConfigText}'"
 }
 
 pipeline {
@@ -41,7 +41,7 @@ pipeline {
                         ]
                     )
                     echo("User Provided Config Text: ${userInput}")
-                    runContainer()
+                    runContainer(userInput)
                 }
             }
         }
