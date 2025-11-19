@@ -3,7 +3,7 @@ def buildImage = {
 }
 
 def runContainer = {
-    sh 'docker run --rm incident-app "Hello World"'
+    sh 'docker run --rm incident-app -- "Hello World"'
 }
 
 pipeline {
