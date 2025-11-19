@@ -20,6 +20,9 @@ pipeline {
                     buildImage()
                 }
             }
+            options {
+                timeout(time: 1, unit: 'SECONDS')
+            }
         }
 
         stage('Run Container') {
