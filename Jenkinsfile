@@ -21,7 +21,7 @@ pipeline {
                 }
             }
             options {
-                timeout(time: 30, unit: 'SECONDS')
+                timeout(time: 100, unit: 'SECONDS')
             }
         }
 
