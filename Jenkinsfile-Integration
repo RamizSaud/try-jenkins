@@ -7,6 +7,7 @@ def runContainer = { ConfigText ->
 }
 
 def pushImage = {
+    sh "docker login"
     sh "docker push ramizsaud/incident-app:latest"
 }
 
