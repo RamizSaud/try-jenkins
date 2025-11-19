@@ -40,7 +40,7 @@ pipeline {
                             )
                         ]
                     )
-                    echo("User Provided Config Text: ${userInput.Config}")
+                    echo("User Provided Config Text: ${userInput}")
                     runContainer()
                 }
             }
