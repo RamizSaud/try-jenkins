@@ -1,4 +1,5 @@
 import sys
+import json
 from db import Database
 
 print("Creating Incidents....")
@@ -6,9 +7,12 @@ print("Creating Incidents....")
 # with open("output.txt", "w") as f:
 #     f.writelines(lines)
 
+data = {}
 print(sys.argv)
 if len(sys.argv) > 1:
     text = sys.argv[1]
+    data = json.loads(text)
+    print("Name: ", data["name"])
     print("Argument received:", text)
 else:
     print("No argument received")
